@@ -60,7 +60,7 @@ class _GameScreenState extends State<GameScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    // brightColorSelector();
+    brightColorSelector();
     // randomNumberGenerator();
   }
 
@@ -77,7 +77,7 @@ class _GameScreenState extends State<GameScreen> {
                 GestureDetector(
                   onTap: () {
                     // randomNumberGenerator();
-                    brightColorSelector();
+                    // brightColorSelector();
                   },
                   child: Container(
                     height: 100.0,
