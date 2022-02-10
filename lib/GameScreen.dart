@@ -21,41 +21,46 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void brightColorSelector() {
-    // if (randomNumberGenerator() == 0) {
-    //   setState(() {
-    //     brightYellow = Colors.yellow;
-    //   });
-    // } else if (randomNumberGenerator() == 1) {
-    //   setState(() {
-    //     brightGreen = Colors.green;
-    //   });
-    // } else if (randomNumberGenerator() == 2) {
-    //   setState(() {
-    //     brightBlue = Colors.blue;
-    //   });
-    // } else if (randomNumberGenerator() == 3) {
-    //   setState(() {
-    //     brightRed = Colors.red;
-    //   });
-    // }
-    setState(() {
-      if (randomNumberGenerator() == 0) {
+    int randomValue = randomNumberGenerator();
+    if (randomValue == 0) {
+      setState(() {
+        print('I am Yellow');
         brightYellow = Colors.yellow;
-      } else if (randomNumberGenerator() == 1) {
+      });
+    } else if (randomValue == 1) {
+      setState(() {
+        print('I am Green');
         brightGreen = Colors.green;
-      } else if (randomNumberGenerator() == 2) {
+      });
+    } else if (randomValue == 2) {
+      setState(() {
+        print('I am Blue');
         brightBlue = Colors.blue;
-      } else if (randomNumberGenerator() == 3) {
+      });
+    } else if (randomValue == 3) {
+      setState(() {
+        print('I am Red');
         brightRed = Colors.red;
-      }
-    });
+      });
+    }
+    // setState(() {
+    //   if (randomNumberGenerator() == 0) {
+    //     brightYellow = Colors.yellow;
+    //   } else if (randomNumberGenerator() == 1) {
+    //     brightGreen = Colors.green;
+    //   } else if (randomNumberGenerator() == 2) {
+    //     brightBlue = Colors.blue;
+    //   } else if (randomNumberGenerator() == 3) {
+    //     brightRed = Colors.red;
+    //   }
+    // });
   }
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    brightColorSelector();
+    // brightColorSelector();
     // randomNumberGenerator();
   }
 
@@ -71,7 +76,8 @@ class _GameScreenState extends State<GameScreen> {
               children: [
                 GestureDetector(
                   onTap: () {
-                    randomNumberGenerator();
+                    // randomNumberGenerator();
+                    brightColorSelector();
                   },
                   child: Container(
                     height: 100.0,
