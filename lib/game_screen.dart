@@ -31,7 +31,7 @@ class _GameScreenState extends State<GameScreen> {
   }
 
   void delayColor() {
-    sleep(Duration(seconds: 1));
+    // sleep(Duration(seconds: 4));
     setState(() {
       print('------------');
       print('I am delayed and colored change after that to original');
@@ -71,26 +71,7 @@ class _GameScreenState extends State<GameScreen> {
         // delayColor();
       });
     }
-    // setState(() {
-    //   if (randomNumberGenerator() == 0) {
-    //     brightYellow = Colors.yellow;
-    //   } else if (randomNumberGenerator() == 1) {
-    //     brightGreen = Colors.green;
-    //   } else if (randomNumberGenerator() == 2) {
-    //     brightBlue = Colors.blue;
-    //   } else if (randomNumberGenerator() == 3) {
-    //     brightRed = Colors.red;
-    //   }
-    // });
   }
-
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   // brightColorSelector();
-  //   // randomNumberGenerator();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -257,7 +238,11 @@ class _GameScreenState extends State<GameScreen> {
             GestureDetector(
               onTap: () {
                 // randomNumberGenerator();
-                brightColorSelector();
+                // brightColorSelector();
+                for (int i = 0; i <= 4; i++) {
+                  brightColorSelector();
+                  sleep(Duration(seconds: 4));
+                }
               },
               child: Container(
                 height: 100.0,
