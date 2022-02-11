@@ -41,7 +41,7 @@ class _GameScreenState extends State<GameScreen> {
     int randomValue = randomNumberGenerator();
     if (randomValue == 0) {
       setState(() {
-        print('I am Yellow'.);
+        print('I am Yellow');
         brightYellow = Colors.yellow;
       });
     } else if (randomValue == 1) {
