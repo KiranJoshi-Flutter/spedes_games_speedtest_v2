@@ -16,6 +16,13 @@ class _GameScreenState extends State<GameScreen> {
   Color? brightBlue = Colors.blue[800];
   Color? brightRed = Colors.red[900];
 
+  late int randomValueCompareKoLai;
+
+  int count = 0;
+
+  int retry = 0;
+  int youWin = 0;
+
   int randomNumberGenerator() {
     delayColor();
     int randomNumber = Random().nextInt(4);
@@ -27,7 +34,7 @@ class _GameScreenState extends State<GameScreen> {
     sleep(Duration(seconds: 1));
     setState(() {
       print('------------');
-      print('I am delayed and colored change after that to orgional');
+      print('I am delayed and colored change after that to original');
 
       brightYellow = Colors.yellow[700];
       brightGreen = Colors.green[800];
@@ -38,6 +45,7 @@ class _GameScreenState extends State<GameScreen> {
 
   void brightColorSelector() {
     int randomValue = randomNumberGenerator();
+    randomValueCompareKoLai = randomValue;
     if (randomValue == 0) {
       setState(() {
         print('I am bright Yellow');
@@ -98,6 +106,25 @@ class _GameScreenState extends State<GameScreen> {
                   onTap: () {
                     // randomNumberGenerator();
                     // brightColorSelector();
+                    print(
+                        'Random Value Compare Ko Lai : $randomValueCompareKoLai');
+                    if (randomValueCompareKoLai == 0) {
+                      setState(() {
+                        count++;
+                        if (count == 5) {
+                          print('You win');
+                          youWin = 1;
+                        }
+                        print('Count: $count');
+                      });
+                    } else {
+                      setState(() {
+                        count = 0;
+                        retry = 1;
+                        print('Retry');
+                        print('Count: $count');
+                      });
+                    }
                   },
                   child: Container(
                     height: 100.0,
@@ -111,12 +138,37 @@ class _GameScreenState extends State<GameScreen> {
                 SizedBox(
                   width: 20.0,
                 ),
-                Container(
-                  height: 100.0,
-                  width: 100.0,
-                  decoration: BoxDecoration(
-                    color: brightGreen,
-                    borderRadius: BorderRadius.circular(50.0),
+                GestureDetector(
+                  onTap: () {
+                    // randomNumberGenerator();
+                    // brightColorSelector();
+                    print(
+                        'Random Value Compare Ko Lai : $randomValueCompareKoLai');
+                    if (randomValueCompareKoLai == 1) {
+                      setState(() {
+                        count++;
+                        if (count == 5) {
+                          print('You win');
+                          youWin = 1;
+                        }
+                        print('Count: $count');
+                      });
+                    } else {
+                      setState(() {
+                        count = 0;
+                        retry = 1;
+                        print('Retry');
+                        print('Count: $count');
+                      });
+                    }
+                  },
+                  child: Container(
+                    height: 100.0,
+                    width: 100.0,
+                    decoration: BoxDecoration(
+                      color: brightGreen,
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
                   ),
                 ),
               ],
@@ -127,24 +179,74 @@ class _GameScreenState extends State<GameScreen> {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Container(
-                  height: 100.0,
-                  width: 100.0,
-                  decoration: BoxDecoration(
-                    // color: Colors.blue[700],
-                    color: brightBlue,
-                    borderRadius: BorderRadius.circular(50.0),
+                GestureDetector(
+                  onTap: () {
+                    // randomNumberGenerator();
+                    // brightColorSelector();
+                    print(
+                        'Random Value Compare Ko Lai : $randomValueCompareKoLai');
+                    if (randomValueCompareKoLai == 2) {
+                      setState(() {
+                        count++;
+                        if (count == 5) {
+                          print('You win');
+                          youWin = 1;
+                        }
+                        print('Count: $count');
+                      });
+                    } else {
+                      setState(() {
+                        count = 0;
+                        retry = 1;
+                        print('Retry');
+                        print('Count: $count');
+                      });
+                    }
+                  },
+                  child: Container(
+                    height: 100.0,
+                    width: 100.0,
+                    decoration: BoxDecoration(
+                      // color: Colors.blue[700],
+                      color: brightBlue,
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
                   ),
                 ),
                 SizedBox(
                   width: 20.0,
                 ),
-                Container(
-                  height: 100.0,
-                  width: 100.0,
-                  decoration: BoxDecoration(
-                    color: brightRed,
-                    borderRadius: BorderRadius.circular(50.0),
+                GestureDetector(
+                  onTap: () {
+                    // randomNumberGenerator();
+                    // brightColorSelector();
+                    print(
+                        'Random Value Compare Ko Lai : $randomValueCompareKoLai');
+                    if (randomValueCompareKoLai == 3) {
+                      setState(() {
+                        count++;
+                        if (count == 5) {
+                          print('You win');
+                          youWin = 1;
+                        }
+                        print('Count: $count');
+                      });
+                    } else {
+                      setState(() {
+                        count = 0;
+                        retry = 1;
+                        print('Retry');
+                        print('Count: $count');
+                      });
+                    }
+                  },
+                  child: Container(
+                    height: 100.0,
+                    width: 100.0,
+                    decoration: BoxDecoration(
+                      color: brightRed,
+                      borderRadius: BorderRadius.circular(50.0),
+                    ),
                   ),
                 ),
               ],
@@ -174,9 +276,37 @@ class _GameScreenState extends State<GameScreen> {
                 ),
               ),
             ),
+            SizedBox(
+              height: 50.0,
+            ),
+            youWin == 1
+                ? Container(
+                    height: 50.0,
+                    width: 150.0,
+                    color: Colors.purpleAccent,
+                    child: Center(
+                      child: Text(
+                        'You Win',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  )
+                : Container(),
           ],
         ),
       ),
+      floatingActionButton: retry == 1
+          ? FloatingActionButton(
+              onPressed: () {},
+              child: Icon(
+                Icons.refresh_outlined,
+              ),
+            )
+          : Container(),
     );
   }
 }
