@@ -51,7 +51,7 @@ class _GameScreenState extends State<GameScreen> {
       });
     } else if (randomValue == 2) {
       setState(() {
-        print('I am Blue');
+        print('I am Blue.');
         brightBlue = Colors.blue;
       });
     } else if (randomValue == 3) {
