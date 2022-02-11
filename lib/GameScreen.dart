@@ -49,7 +49,7 @@ class _GameScreenState extends State<GameScreen> {
         brightYellow = Colors.black;
         // delayColor()
       } else if (randomValue == 1) {
-        print('I am bright Green');
+        print('I am bright Green...');
         brightGreen = Colors.black;
         // delayColor();
       } else if (randomValue == 2) {
