@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'dart:math';
 
@@ -10,14 +12,29 @@ class GameScreen extends StatefulWidget {
 
 class _GameScreenState extends State<GameScreen> {
   Color? brightYellow = Colors.yellow[700];
-  Color? brightGreen = Colors.green[700];
-  Color? brightBlue = Colors.blue[700];
-  Color? brightRed = Colors.red[700];
+  Color? brightGreen = Colors.green[800];
+  Color? brightBlue = Colors.blue[800];
+  Color? brightRed = Colors.red[900];
+
+  late int i;
 
   int randomNumberGenerator() {
+    delayColor();
     int randomNumber = Random().nextInt(4);
     print('$randomNumber');
     return randomNumber;
+  }
+
+  void delayColor() {
+    sleep(Duration(seconds: 1));
+    setState(() {
+      print('------------');
+      print('I am here');
+      brightYellow = Colors.yellow[700];
+      brightGreen = Colors.green[800];
+      brightBlue = Colors.blue[800];
+      brightRed = Colors.red[900];
+    });
   }
 
   void brightColorSelector() {
@@ -30,7 +47,7 @@ class _GameScreenState extends State<GameScreen> {
     } else if (randomValue == 1) {
       setState(() {
         print('I am Green');
-        brightGreen = Colors.green;
+        brightGreen = Colors.lightGreen;
       });
     } else if (randomValue == 2) {
       setState(() {
@@ -40,7 +57,7 @@ class _GameScreenState extends State<GameScreen> {
     } else if (randomValue == 3) {
       setState(() {
         print('I am Red');
-        brightRed = Colors.red;
+        brightRed = Colors.redAccent;
       });
     }
     // setState(() {
@@ -60,7 +77,7 @@ class _GameScreenState extends State<GameScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    brightColorSelector();
+    // brightColorSelector();
     // randomNumberGenerator();
   }
 
@@ -77,7 +94,7 @@ class _GameScreenState extends State<GameScreen> {
                 GestureDetector(
                   onTap: () {
                     // randomNumberGenerator();
-                    // brightColorSelector();
+                    brightColorSelector();
                   },
                   child: Container(
                     height: 100.0,
