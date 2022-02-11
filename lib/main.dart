@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:spedes_games_speedtest_v2/GameScreen.dart';
+import 'package:spedes_games_speedtest_v2/game_screen.dart';
 
 void main() {
   runApp(MyApp());
